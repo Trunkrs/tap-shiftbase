@@ -4,172 +4,262 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[0-9]+$",
+          "description": "The unique identifier for the user",
+          "readOnly": true
         },
         "account_id": {
-          "type": "string"
-        },
-        "employee_nr": {
-          "type": ["string","null"]
-        },
-        "email": {
-          "type": "string"
-        },
-        "birthdate": {
-          "type": ["string", "null"],
-          "format": "date"
+          "type": "string",
+          "pattern": "^[0-9]+$",
+          "description": "The account ID the user is linked to",
+          "readOnly": true
         },
         "first_name": {
-          "type": "string"
+          "type": "string",
+          "description": "First name of user"
         },
         "prefix": {
-          "type": "string"
+          "type": "string",
+          "description": "Prefix of last name"
         },
         "last_name": {
-          "type": "string"
+          "type": "string",
+          "description": "Last name of user"
         },
-        "street_address": {
-          "type": ["string","null"]
+        "avatar_file_name": {
+          "type": "string",
+          "description": "File name of avatar",
+          "nullable": true,
+          "readOnly": true
         },
-        "post_code": {
-          "type": ["string","null"]
+        "locale": {
+          "type": "string",
+          "description": "The locale of the user, in RFC5646 format",
+          "enum": [
+            "nl-NL",
+            "en-GB",
+            "fr-FR",
+            "de-DE",
+            "es-ES",
+            "pl-PL",
+            "sv-SE",
+            "ro-RO"
+          ]
         },
-        "city": {
-          "type": ["string","null"]
-        },
-        "hire_date": {
-          "type": ["string","null"],
-          "format": "date"
+        "order": {
+          "type": "string",
+          "description": "Used for sorting users"
         },
         "startdate": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "Date the user is active in the system"
         },
         "enddate": {
-          "type": ["string","null"],
-          "format": "date"
-        },
-        "birthplace": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "nationality": {
-          "type": ["string","null"]
-        },
-        "ssn": {
-          "type": ["string","null"]
-        },
-        "passport_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "banknr": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "phone_nr": {
-          "type": ["string","null"]
-        },
-        "mobile_nr": {
-          "type": ["string","null"]
-        },
-        "emergency_nr": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar_file_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "nr_of_logins": {
-          "type": "string"
-        },
-        "roster_note": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locale": {
-          "type": "string"
-        },
-        "last_login": {
-          "type": ["string","null"],
-          "format": "date-time"
-        },
-        "order": {
-          "type": "string"
-        },
-        "plus_min_hours": {
-          "type": "string"
+          "type": "string",
+          "format": "date",
+          "description": "Date the user is inactive in the system",
+          "nullable": true
         },
         "anonymized": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whenever the user is anomymized",
+          "readOnly": true
         },
-        "invited": {
-          "type": "boolean"
+        "street_address": {
+          "type": "string",
+          "description": "Only available with `View user details`, `View all users` or `View own profile` permission.",
+          "nullable": true
         },
-        "custom_fields": {
-          "type": "string"
+        "post_code": {
+          "type": "string",
+          "description": "Only visible with `View user details`, `View all users` or `View own profile` permission.",
+          "nullable": true
+        },
+        "city": {
+          "type": "string",
+          "description": "Only available with `View user details`, `View all users` or `View own profile` permission.",
+          "nullable": true
+        },
+        "phone_nr": {
+          "type": "string",
+          "description": "Only available with `View user details`, `View all users` or `View own profile` permission.",
+          "nullable": true
+        },
+        "mobile_nr": {
+          "type": "string",
+          "description": "Only available with `View user details`, `View all users` or `View own profile` permission.",
+          "nullable": true
+        },
+        "emergency_nr": {
+          "type": "string",
+          "description": "Only available with `View user details`, `View all users` or `View own profile` permission.",
+          "nullable": true
+        },
+        "email": {
+          "type": "string",
+          "description": "Only available with `View user details`, `View all users` or `View own profile` permission."
         },
         "verified": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whenever the user has verified the email. Only available with `View user details`, `View all users` or `View own profile` permission.",
+          "readOnly": true
+        },
+        "hire_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the user is hired. Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "birthplace": {
+          "type": "string",
+          "description": "Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "birthdate": {
+          "type": "string",
+          "format": "date",
+          "description": "Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "nationality": {
+          "type": "string",
+          "description": "Nationality of user. Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "ssn": {
+          "type": "string",
+          "description": "Field for social security number of user. Only visible with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "passport_number": {
+          "type": "string",
+          "description": "Document number of passport. Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "banknr": {
+          "type": "string",
+          "description": "Bank number of user. Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "nr_of_logins": {
+          "type": "string",
+          "description": "Number of logins. Only available with `View user details` or `View own profile` permission.",
+          "readOnly": true
+        },
+        "last_login": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the last login. Only available with `View user details` or `View own profile` permission.",
+          "nullable": true,
+          "readOnly": true
+        },
+        "employee_nr": {
+          "type": "string",
+          "description": "Only available with `View user details` or `View own profile` permission.",
+          "nullable": true
+        },
+        "custom_fields": {
+          "description": "User custom fields. Key value, where the key is the custom field id",
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "string",
+              "properties": {}
+            }
+          ]
+        },
+        "roster_note": {
+          "type": "string",
+          "description": "Note that shows up in the schedule for this user. Only available with `Edit roster`, `Create Roster` or `Edit users` permission.",
+          "nullable": true
+        },
+        "invited": {
+          "type": "boolean",
+          "description": "Whenever the user is invited. Only available with `Edit users`"
+        },
+        "plus_min_hours": {
+          "type": "string",
+          "description": "Plus min hours of user. Only available with `View plus min hours` permission."
         },
         "birthday": {
-          "type": ["string","null"],
-          "format": "date"
+          "type": "string",
+          "description": "Date of the next birthday. Only available with `View user details` or `View own profile` permission.",
+          "format": "date",
+          "nullable": true
         },
         "birthday_age": {
-          "type": ["string","null"]
+          "type": "string",
+          "description": "Age of the user on birthday date. Only available with `View user details` permission.",
+          "nullable": true
         },
         "age": {
-          "type": ["string","null"]
+          "type": "string",
+          "description": "Age of the user. Only available with `View user details` permission.",
+          "nullable": true
         },
         "has_login": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whenever the user has set a password. Only available with `View user details` permission.",
+          "readOnly": true
         },
         "mfa_enabled": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whenever mfa is enabled for user. Only available with `View user details` permission.",
+          "readOnly": true
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Full name of user",
+          "readOnly": true
         },
         "display_name": {
-          "type": "string"
+          "type": "string",
+          "description": "Shorter display name",
+          "readOnly": true
+        },
+        "language": {
+          "type": "string",
+          "description": "The 2 character language code, based of the locale",
+          "readOnly": true
         },
         "avatar_15x15": {
           "type": "string",
-          "format": "uri"
+          "description": "Link to 15 by 15 pixel version of user's avatar",
+          "readOnly": true
         },
         "avatar_24x24": {
           "type": "string",
-          "format": "uri"
+          "description": "Link to 24 by 24 pixel version of user's avatar",
+          "readOnly": true
         },
         "avatar_30x30": {
           "type": "string",
-          "format": "uri"
+          "description": "Link to 30 by 30 pixel version of user's avatar",
+          "readOnly": true
         },
         "avatar_45x45": {
           "type": "string",
-          "format": "uri"
+          "description": "Link to 45 by 45 pixel version of user's avatar",
+          "readOnly": true
         },
         "avatar_60x60": {
           "type": "string",
-          "format": "uri"
+          "description": "Link to 60 by 60 pixel version of user's avatar",
+          "readOnly": true
         },
         "avatar_150x200": {
           "type": "string",
-          "format": "uri"
+          "description": "Link to 150 by 200 pixel version of user's avatar",
+          "readOnly": true
         }
       }
     },
