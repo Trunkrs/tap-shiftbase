@@ -162,8 +162,7 @@
             {
               "type": "number"
             }
-          ],
-          "description": "Total worked hours"
+          ]
         },
         "worked_for_vacation": {
           "type": "string",
@@ -198,8 +197,7 @@
             {
               "type": "number"
             }
-          ],
-          "description": "Duration of break in minutese"
+          ]
         },
         "meals": {
           "type": "string",
@@ -217,7 +215,6 @@
           "description": "If the timesheet is clock based"
         },
         "custom_fields": {
-          "description": "Timesheet custom fields. Key value, where the key is the custom field id.",
           "anyOf": [
             {
               "type": "array",
