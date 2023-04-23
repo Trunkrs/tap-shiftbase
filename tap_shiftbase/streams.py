@@ -13,7 +13,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class UsersStream(shiftbaseStream):
     name = "users"
     path = "/users"
-    primary_keys = ["id"]
+    primary_keys = ["Users.id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "users.json"
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-shiftbase"
-version = "0.0.2"
+version = "0.0.3"
 description = "`tap-shiftbase` is a Singer tap for shiftbase, built with the Meltano Singer SDK."
 readme = "README.md"
 authors = ["Hidde Stokvis"]
