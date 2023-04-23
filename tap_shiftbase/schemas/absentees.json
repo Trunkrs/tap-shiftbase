@@ -3,7 +3,7 @@
   "title": "Singer SDK Schema for Absentee and ReviewedBy data",
   "type": "object",
   "properties": {
-    "Absentee": {
+    "absentee": {
       "type": "object",
       "properties": {
         "id": {
@@ -112,7 +112,7 @@
         }
       }
     },
-    "ReviewedBy": {
+    "reviewedby": {
       "type": "object",
       "properties": {
         "id": {

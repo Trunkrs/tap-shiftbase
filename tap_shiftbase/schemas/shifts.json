@@ -3,73 +3,135 @@
   "title": "Shift",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "account_id": {
-      "type": "string"
-    },
-    "department_id": {
-      "type": "string"
-    },
-    "long_name": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "starttime": {
-      "type": "string",
-      "format": "time"
-    },
-    "endtime": {
-      "type": "string",
-      "format": "time"
-    },
-    "hide_end_time": {
-      "type": "boolean"
-    },
-    "is_task": {
-      "type": "boolean"
-    },
-    "break": {
-      "type": "integer"
-    },
-    "meals": {
-      "type": "integer"
-    },
-    "rate_card_id": {
-      "type": "string"
-    },
-    "color": {
-      "type": "string",
-      "format": "color"
-    },
-    "order": {
-      "type": "string"
-    },
-    "custom_fields": {
-      "type": "object"
-    },
-    "created": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "updated": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "deleted": {
-      "type": "boolean"
-    },
-    "created_by": {
-      "type": "string"
-    },
-    "modified_by": {
-      "type": "string"
+    "shift": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The shift ID",
+          "pattern": "^[0-9]+$",
+          "readOnly": true
+        },
+        "account_id": {
+          "type": "string",
+          "description": "The account ID",
+          "pattern": "^[0-9]+$",
+          "readOnly": true
+        },
+        "department_id": {
+          "type": "string",
+          "description": "The department ID",
+          "pattern": "^[0-9]+$"
+        },
+        "long_name": {
+          "type": "string",
+          "description": "The name of the shift"
+        },
+        "name": {
+          "type": "string",
+          "description": "The short name of the shift"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description what the shift is about"
+        },
+        "starttime": {
+          "type": "string",
+          "description": "The time the shift starts",
+          "format": "time"
+        },
+        "endtime": {
+          "type": "string",
+          "description": "The time the shift should end",
+          "format": "time"
+        },
+        "hide_end_time": {
+          "type": "boolean",
+          "description": "Indicate whether to hide the end time of the shift"
+        },
+        "is_task": {
+          "type": "boolean",
+          "description": "Indicate whether this shift is a task"
+        },
+        "break": {
+          "description": "The duration of the break in minutes",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "meals": {
+          "description": "The amount of meals",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "rate_card_id": {
+          "type": ["string","null"],
+          "description": "The rate card id",
+          "nullable": true
+        },
+        "color": {
+          "type": "string",
+          "description": "The color for the shift"
+        },
+        "order": {
+          "type": "string",
+          "description": "Used for sorting the shifts"
+        },
+        "custom_fields": {
+          "oneOf": [
+            {
+              "type": "string",
+              "maxLength": 0,
+              "minLength": 0
+            },
+            {
+              "type": "object",
+              "minProperties": 1
+            }
+          ],
+          "description": "Custom fields that are specific for the shift"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The datetime when the shift has been created",
+          "readOnly": true
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The datetime when the shift has been updated",
+          "readOnly": true
+        },
+        "deleted": {
+          "type": "boolean",
+          "description": "Indicates whether the shift has been deleted",
+          "readOnly": true
+        },
+        "created_by": {
+          "type": "string",
+          "description": "Id of the employee that added this shift",
+          "nullable": true,
+          "readOnly": true
+        },
+        "modified_by": {
+          "type": "string",
+          "description": "Id of the employee that modified this shift",
+          "nullable": true,
+          "readOnly": true
+        }
+      }
     }
   }
 }

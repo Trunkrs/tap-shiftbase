@@ -20,12 +20,6 @@ plugins:
         kind: string
       - name: api_url
         kind: string
-      - name: flattening_enabled
-        kind: boolean
-        value: true
-      - name: flattening_max_depth
-        kind: integer
-        value: 3
   loaders:
   - name: target-jsonl
     variant: andyh1203

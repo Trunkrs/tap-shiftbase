@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "Roster": {
+    "roster": {
       "type": "object",
       "properties": {
         "id": {
@@ -75,7 +75,7 @@
         }
       }
     },
-    "Exchange": {
+    "exchange": {
       "type": [
         "null",
         "object"

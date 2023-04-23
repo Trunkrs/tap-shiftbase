@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "CustomField": {
+    "customfield": {
       "type": "object",
       "properties": {
         "id": {

@@ -1,6 +1,6 @@
 {
   "properties": {
-    "User": {
+    "user": {
       "type": "object",
       "properties": {
         "id": {

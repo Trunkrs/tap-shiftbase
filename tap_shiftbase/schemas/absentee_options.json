@@ -3,7 +3,7 @@
   "title": "Singer SDK Schema for Absentee Option data",
   "type": "object",
   "properties": {
-    "AbsenteeOption": {
+    "absenteeoption": {
       "type": "object",
       "properties": {
         "id": {
