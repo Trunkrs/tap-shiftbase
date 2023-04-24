@@ -20,7 +20,7 @@ class UsersStream(shiftbaseStream):
 class AbsenteeOptionsStream(shiftbaseStream):
     name = "absentee_options"
     path = "/absentee_options"
-    primary_keys = "absenteeoption__id"
+    primary_keys = ["absenteeoption__id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "absentee_options.json"
 
