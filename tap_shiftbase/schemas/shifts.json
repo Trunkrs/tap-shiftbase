@@ -54,7 +54,6 @@
           "description": "Indicate whether this shift is a task"
         },
         "break": {
-          "description": "The duration of the break in minutes",
           "anyOf": [
             {
               "type": "string"
@@ -65,7 +64,6 @@
           ]
         },
         "meals": {
-          "description": "The amount of meals",
           "anyOf": [
             {
               "type": "integer"
@@ -99,8 +97,7 @@
               "type": "object",
               "minProperties": 1
             }
-          ],
-          "description": "Custom fields that are specific for the shift"
+          ]
         },
         "created": {
           "type": "string",

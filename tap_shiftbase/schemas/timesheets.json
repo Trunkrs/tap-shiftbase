@@ -28,9 +28,8 @@
           "pattern": "^[0-9]+$"
         },
         "roster_id": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^[0-9]+$",
-          "description": "Id of the schedule",
           "nullable": true
         },
         "rate_card_id": {
@@ -47,37 +46,37 @@
           "description": "Start time of the timesheet"
         },
         "clocked_in": {
-          "type": "string",
+          "type": ["string","null"],
           "format": "date-time",
           "description": "Date of the clock in action",
           "nullable": true
         },
         "clocked_in_latitude": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$",
           "description": "Latitude of the clock in location",
           "nullable": true
         },
         "clocked_in_longitude": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$",
           "description": "Longitude of the clock in location",
           "nullable": true
         },
         "clocked_in_accuracy": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "The accuracy of the latitude and longitude in meters",
           "pattern": "^([0-9]*[.])?[0-9]+$",
           "nullable": true
         },
         "clocked_in_ip": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "IP address of the clock in action",
           "nullable": true,
           "readOnly": true
         },
         "clocked_in_origin": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "Origin of the clocking action",
           "enum": [
             "terminal",
@@ -90,48 +89,48 @@
           "readOnly": true
         },
         "clocked_in_verified_by": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "User id of the employee who verified the clock in action",
           "nullable": true,
           "readOnly": true
         },
         "endtime": {
-          "type": "string",
+          "type": ["string","null"],
           "format": "time",
           "nullable": true
         },
         "clocked_out": {
-          "type": "string",
+          "type": ["string","null"],
           "format": "date-time",
           "description": "Date of the clock out action",
           "nullable": true
         },
         "clocked_out_latitude": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$",
           "description": "Latitude of the clock out location",
           "nullable": true
         },
         "clocked_out_longitude": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$",
           "description": "Longitude of the clock out location",
           "nullable": true
         },
         "clocked_out_accuracy": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "The accuracy of the latitude and longitude in meters",
           "pattern": "^([0-9]*[.])?[0-9]+$",
           "nullable": true
         },
         "clocked_out_ip": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "IP address of the clock out action",
           "nullable": true,
           "readOnly": true
         },
         "clocked_out_origin": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "Origin of the clockout action",
           "enum": [
             "terminal",
@@ -144,12 +143,12 @@
           "readOnly": true
         },
         "clocked_out_verified_by": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "User id of the employee who verified the clock out action",
           "nullable": true
         },
         "clocked_break": {
-          "type": "string",
+          "type": ["string","null"],
           "description": "Clocked break in minutes",
           "nullable": true,
           "readOnly": true
@@ -208,24 +207,11 @@
           "description": "Registered driven kilometers"
         },
         "note": {
-          "type": "string"
+          "type": ["string","null"]
         },
         "clock": {
           "type": "boolean",
           "description": "If the timesheet is clock based"
-        },
-        "custom_fields": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object"
-              }
-            },
-            {
-              "type": "object"
-            }
-          ]
         },
         "deleted": {
           "type": "boolean",
@@ -242,24 +228,24 @@
           "readOnly": true
         },
         "reviewed": {
-          "type": "string",
+          "type": ["string","null"],
           "minLength": 1,
           "nullable": true,
           "readOnly": true
         },
         "created_by": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^[0-9]+$",
           "nullable": true,
           "readOnly": true
         },
         "modified_by": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^[0-9]+$",
           "readOnly": true
         },
         "reviewed_by": {
-          "type": "string",
+          "type": ["string","null"],
           "pattern": "^[0-9]+$",
           "nullable": true,
           "readOnly": true
@@ -306,73 +292,6 @@
             "worked_for_vacation": {
               "type": "number",
               "description": "Hours worked for vacation lation"
-            },
-            "RateBlock": {
-              "type": "array",
-              "uniqueItems": true,
-              "description": "Calculated rate blocks, the rates are split into rate blocks based on the Rate Card settings",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "date": {
-                    "type": "string",
-                    "minLength": 1,
-                    "format": "date"
-                  },
-                  "starttime": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "Start time of the rate block"
-                  },
-                  "endtime": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "End time of the rate block"
-                  },
-                  "duration": {
-                    "type": "number",
-                    "description": "Duration of rate block in minutes"
-                  },
-                  "paid_percentage": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "Surcharge of the rate block (e.g. 100, 150)"
-                  },
-                  "paid_percentage_id": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "time_percentage": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "Surcharge of the rate block"
-                  },
-                  "time_percentage_id": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "break": {
-                    "anyOf": [
-                      {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ],
-                    "description": "Duration of break in minutes"
-                  },
-                  "surcharge_pay": {
-                    "type": "number",
-                    "description": "Surcharge hours (Paid)"
-                  },
-                  "surcharge_time": {
-                    "type": "number",
-                    "description": "Surcharge hours (time)"
-                  }
-                }
-              }
             }
           }
         }
@@ -400,37 +319,37 @@
               "pattern": "^[0-9]+$"
             },
             "clocked_in": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Date of the clock in action",
               "format": "date-time",
               "nullable": true
             },
             "clocked_in_latitude": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Latitude of the clock in location",
               "pattern": "^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$",
               "nullable": true
             },
             "clocked_in_longitude": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Longitude of the clock in location",
               "pattern": "^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$",
               "nullable": true
             },
             "clocked_in_accuracy": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "The accuracy of the latitude and longitude in meters",
               "pattern": "^([0-9]*[.])?[0-9]+$",
               "nullable": true
             },
             "clocked_in_ip": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "IP address of the clock in action",
               "nullable": true,
               "readOnly": true
             },
             "clocked_in_origin": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Origin of the clocking in action",
               "enum": [
                 "terminal",
@@ -443,43 +362,43 @@
               "readOnly": true
             },
             "clocked_in_verified_by": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "User id of the employee who verified the clock in action",
               "nullable": true,
               "readOnly": true
             },
             "clocked_out": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Date of the clock out action",
               "format": "date-time",
               "nullable": true
             },
             "clocked_out_latitude": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Latitude of the clock out location",
               "pattern": "^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$",
               "nullable": true
             },
             "clocked_out_longitude": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Longitude of the clock out location",
               "pattern": "^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$",
               "nullable": true
             },
             "clocked_out_accuracy": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "The accuracy of the latitude and longitude in meters",
               "pattern": "^([0-9]*[.])?[0-9]+$",
               "nullable": true
             },
             "clocked_out_ip": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "IP address of the clock out action",
               "nullable": true,
               "readOnly": true
             },
             "clocked_out_origin": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "Origin of the clocking out action",
               "enum": [
                 "terminal",
@@ -492,7 +411,7 @@
               "readOnly": true
             },
             "clocked_out_verified_by": {
-              "type": "string",
+              "type": ["string","null"],
               "description": "User id of the employee who verified the clock out action",
               "nullable": true,
               "readOnly": true
