@@ -78,13 +78,6 @@
         "clocked_in_origin": {
           "type": ["string","null"],
           "description": "Origin of the clocking action",
-          "enum": [
-            "terminal",
-            "web_app",
-            "mobile_app",
-            "api",
-            null
-          ],
           "nullable": true,
           "readOnly": true
         },
@@ -132,13 +125,6 @@
         "clocked_out_origin": {
           "type": ["string","null"],
           "description": "Origin of the clockout action",
-          "enum": [
-            "terminal",
-            "web_app",
-            "mobile_app",
-            "api",
-            null
-          ],
           "nullable": true,
           "readOnly": true
         },
@@ -351,13 +337,6 @@
             "clocked_in_origin": {
               "type": ["string","null"],
               "description": "Origin of the clocking in action",
-              "enum": [
-                "terminal",
-                "web_app",
-                "mobile_app",
-                "api",
-                null
-              ],
               "nullable": true,
               "readOnly": true
             },
@@ -400,13 +379,6 @@
             "clocked_out_origin": {
               "type": ["string","null"],
               "description": "Origin of the clocking out action",
-              "enum": [
-                "terminal",
-                "web_app",
-                "mobile_app",
-                "api",
-                null
-              ],
               "nullable": true,
               "readOnly": true
             },
