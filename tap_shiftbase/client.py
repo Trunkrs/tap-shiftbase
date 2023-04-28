@@ -10,7 +10,7 @@ from singer_sdk.authenticators import APIKeyAuthenticator
 from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.streams import RESTStream
 
-import logging
+from datetime import datetime, timedelta
 
 _Auth = Callable[[requests.PreparedRequest], requests.PreparedRequest]
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
@@ -83,6 +83,9 @@ class shiftbaseStream(RESTStream):
             A dictionary of URL query parameters.
         """
         params: dict = {}
+        if self.name == "timesheets" or self.name == "rosters":
+            min_date = datetime.today() - timedelta(weeks=2)
+            params["min_date"] = min_date.strftime("%Y-%m-%d")
         if next_page_token:
             params["page"] = next_page_token
         if self.replication_key:
